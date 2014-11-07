@@ -25,4 +25,12 @@ class BlogEntryTest < ActiveSupport::TestCase
 		assert_not blog_entry.save		
 	end
 
+	test "should save a new blog entry" do
+		blog_entry = BlogEntry.new
+		blog_entry.title = "The is the title of the blog entry"
+		blog_entry.body = "The is the body of the blog entry" 
+		blog_entry.tag_list.add("Unspecified")
+		assert blog_entry.save
+	end
+
 end
