@@ -27,6 +27,13 @@ end
 		assert_not blog_entry.save		
 	end
 =end
+test "should add a tag with the string Unspecified to the blog entry when no tag has been given after saving" do
+	blog_entry = BlogEntry.new
+	blog_entry.title = "The is the title of the blog entry"
+	blog_entry.body = "The is the body of the blog entry" 
+	assert blog_entry.save
+	assert blog_entry.tag_list.include?("Unspecified")
+end
 
 test "should save a new blog entry" do
 	blog_entry = BlogEntry.new

@@ -5,10 +5,8 @@ class BlogEntry < ActiveRecord::Base
 	validates :tag_list, :presence => true
 	before_validation :check_tags
 
-	private
+	protected
 	def check_tags 
-		if self.tag_list.empty?
-		self.tag_list.add("Unspecified")
-		end
+		self.tag_list.add("Unspecified") if self.tag_list.empty?
 	end
 end
