@@ -12,4 +12,10 @@ class BlogEntryTest < ActiveSupport::TestCase
 		assert_not blog_entry.save
 	end
 
+	test "should not save the blog entry when body is not given" do
+		blog_entry = BlogEntry.new
+		blog_entry.title = "The is the title of the blog entry"
+		assert_not blog_entry.save
+	end
+
 end
