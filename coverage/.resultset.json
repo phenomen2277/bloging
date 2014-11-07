@@ -1,0 +1,15 @@
+{
+  "MiniTest": {
+    "coverage": {
+      "/Users/jone/Documents/rails/bloging/app/models/blog_entry.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1415389636
+  }
+}
