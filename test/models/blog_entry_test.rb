@@ -23,7 +23,6 @@ class BlogEntryTest < ActiveSupport::TestCase
 		blog_entry.title = "The is the title of the blog entry"
 		blog_entry.body = "The is the body of the blog entry"
 		assert_not blog_entry.save		
-
 	end
 
 end
