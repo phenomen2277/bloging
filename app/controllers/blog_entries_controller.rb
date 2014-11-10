@@ -8,9 +8,10 @@ class BlogEntriesController < ApplicationController
 	end
 
 	def show
+		return head :forbidden unless params[:id].to_i > 0
 		@blog_entry = BlogEntry.find(params[:id])
 	end
-	
+
 	def create
 		@blog_entry = BlogEntry.new(blog_entry_params)
 
@@ -18,7 +19,7 @@ class BlogEntriesController < ApplicationController
       	if @blog_entry.save
         	format.html { redirect_to :action => :index }
       	else
-        	format.html { render :new, :status => :forbidden }
+        	return head :forbidden
       	end
     end
 
