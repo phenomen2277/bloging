@@ -57,6 +57,12 @@ class BlogEntriesControllerTest < ActionController::TestCase
 	test "should destroy blog entry" do
 		@blog_entry = BlogEntry.first
 		delete :destroy, id: @blog_entry
+		assert_redirected_to blog_entries_path
 	end
 
+	test "should not destroy blog entry" do
+		@blog_entry = BlogEntry.first
+		delete :destroy, id: "foo"
+		assert_redirected_to blog_entries_path
+	end
 end

@@ -1,5 +1,5 @@
 class BlogEntriesController < ApplicationController
-	before_action :set_blog_entry, only:[:show, :edit, :update]
+	before_action :set_blog_entry, only:[:show, :edit, :update, :destroy]
 	def index
 		@blog_entries = BlogEntry.all.order("created_at DESC")
 	end
@@ -12,6 +12,17 @@ class BlogEntriesController < ApplicationController
 	end
 
 	def edit
+	end
+
+	def destroy
+
+		respond_to do |format|
+			if @blog_entry.destroy
+				format.html { redirect_to blog_entries_url, notice: 'Blog entry was destroyed.' }
+			else
+				return head :forbidden
+			end
+		end
 	end
 
 	def update
