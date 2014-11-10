@@ -1,5 +1,5 @@
 class BlogEntriesController < ApplicationController
-	before_action :set_blog_entry, only:[:show]
+	before_action :set_blog_entry, only:[:show, :edit]
 	def index
 		@blog_entries = BlogEntry.all
 	end
@@ -9,6 +9,9 @@ class BlogEntriesController < ApplicationController
 	end
 
 	def show
+	end
+
+	def edit
 	end
 
 	def create
@@ -21,7 +24,6 @@ class BlogEntriesController < ApplicationController
 				return head :forbidden
 			end
 		end
-
 	end
 
 	private
