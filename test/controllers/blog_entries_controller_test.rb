@@ -41,4 +41,9 @@ class BlogEntriesControllerTest < ActionController::TestCase
 		assert_response :forbidden
 	end
 
+	test "should render edit" do
+		get :edit
+		assert_response :success
+	end
+
 end
