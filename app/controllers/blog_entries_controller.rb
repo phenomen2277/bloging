@@ -1,5 +1,6 @@
 class BlogEntriesController < ApplicationController
-	before_action :set_blog_entry, only:[:show, :edit, :update, :destroy]
+	before_action :require_authentication, only: [:new, :edit, :destroy]
+	before_action :set_blog_entry, only: [:show, :edit, :update, :destroy]
 	def index
 		@blog_entries = BlogEntry.all.order("created_at DESC")
 	end
@@ -28,7 +29,7 @@ class BlogEntriesController < ApplicationController
 	def update
 		respond_to do |format|
 			if @blog_entry.update(blog_entry_params)
-				format.html { redirect_to @blog_entry, :status => :accepted, notice: 'Blog entry is updated.' }
+				format.html { redirect_to @blog_entry, notice: 'Blog entry is updated.' }
 			else
 				format.html { render :edit }
 			end
@@ -56,4 +57,16 @@ class BlogEntriesController < ApplicationController
 		return head :forbidden unless params[:id].to_i > 0
 		@blog_entry = BlogEntry.find(params[:id])
 	end
+
+	def require_authentication
+		authenticate_or_request_with_http_basic do |name, password|
+			if name == 'foo' && password == 'bar'
+				session[:logged_in] = true
+				return true
+			else
+				return false
+			end
+		end
+	end
+
 end

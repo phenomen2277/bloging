@@ -48,7 +48,7 @@ class BlogEntriesControllerTest < ActionController::TestCase
 		@blog_entry.expects(:title).at_least(1).returns("Title (Updated)")
 		@blog_entry.expects(:body).at_least(1).returns("Body (Updated)")
 		patch :update, :id => @blog_entry, blog_entry: {title: @blog_entry.title , body: @blog_entry.body, tag_list: :tag_one} 
-		assert_response :accepted
+		assert_redirected_to blog_entry_path(@blog_entry)
 	end
 
 	test "should destroy blog entry" do
