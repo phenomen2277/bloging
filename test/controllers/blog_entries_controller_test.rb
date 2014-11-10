@@ -36,4 +36,9 @@ class BlogEntriesControllerTest < ActionController::TestCase
 		assert_response :success
 	end
 
+	test "should not show the blog entry" do
+		get :show
+		assert_response :success
+	end
+
 end
