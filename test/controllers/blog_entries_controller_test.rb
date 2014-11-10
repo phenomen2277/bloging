@@ -24,8 +24,12 @@ class BlogEntriesControllerTest < ActionController::TestCase
 	be = blog_entries(:one)
 	BlogEntry.expects(:new).at_least(1).returns(be)
 	@blog_entry = BlogEntry.new
+	
+	@blog_entry.expects(:title).at_least(1).returns(nil)
+
 	post :create, blog_entry: { body: @blog_entry.body, title: @blog_entry.title, tag_list: :tag_one }
 	assert_response :forbidden
 	end
+
 
 end

@@ -14,7 +14,7 @@ class BlogEntriesController < ApplicationController
       	if @blog_entry.save
         	format.html { redirect_to :action => :index }
       	else
-        	format.html { render :new }
+        	format.html { render :new, :status => :forbidden }
       	end
     end
 
