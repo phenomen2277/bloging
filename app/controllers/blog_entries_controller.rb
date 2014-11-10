@@ -7,6 +7,10 @@ class BlogEntriesController < ApplicationController
 		@blog_entry = BlogEntry.new
 	end
 
+	def show
+		@blog_entry = BlogEntry.find(params[:id])
+	end
+	
 	def create
 		@blog_entry = BlogEntry.new(blog_entry_params)
 
@@ -23,5 +27,9 @@ class BlogEntriesController < ApplicationController
 	private
 	def blog_entry_params
       params.require(:blog_entry).permit(:title, :body, :tag_list)
+    end
+
+    def set_blog_entry
+      @blog_entry = BlogEntry.find(params[:id])
     end
 end

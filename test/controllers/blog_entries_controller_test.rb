@@ -32,7 +32,7 @@ class BlogEntriesControllerTest < ActionController::TestCase
 	end
 
 	test "should show the blog entry" do
-		get :show
+		get :show, :id => BlogEntry.first.id
 		assert_response :success
 	end
 
