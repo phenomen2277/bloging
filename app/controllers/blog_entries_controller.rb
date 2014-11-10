@@ -1,7 +1,7 @@
 class BlogEntriesController < ApplicationController
-	before_action :set_blog_entry, only:[:show, :edit]
+	before_action :set_blog_entry, only:[:show, :edit, :update]
 	def index
-		@blog_entries = BlogEntry.all
+		@blog_entries = BlogEntry.all.order("created_at DESC")
 	end
 
 	def new
@@ -12,6 +12,10 @@ class BlogEntriesController < ApplicationController
 	end
 
 	def edit
+	end
+
+	def update
+
 	end
 
 	def create

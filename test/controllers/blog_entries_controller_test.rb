@@ -27,6 +27,7 @@ class BlogEntriesControllerTest < ActionController::TestCase
 
 		@blog_entry.expects(:title).at_least(1).returns(nil)
 
+
 		post :create, blog_entry: { body: @blog_entry.body, title: @blog_entry.title, tag_list: :tag_one }
 		assert_response :forbidden
 	end
@@ -44,6 +45,13 @@ class BlogEntriesControllerTest < ActionController::TestCase
 	test "should render edit" do
 		get :edit, :id => BlogEntry.first
 		assert_response :success
+	end
+
+	test "should update blog entry" do
+		@blog_entry = BlogEntry.first
+		@blog_entry.expects(:title).at_least(1).returns("New title (Updated)")
+		patch :update, :id => @blog_entry, blog_entry: {title: @blog_entry.title , body: @blog_entry.body + " " + "updated", tag_list: :tag_one} 
+		assert_response :accepted
 	end
 
 end
