@@ -1,4 +1,5 @@
 class BlogEntriesController < ApplicationController
+	before_action :set_blog_entry, only:[:show]
 	def index
 		@blog_entries = BlogEntry.all
 	end
@@ -8,8 +9,7 @@ class BlogEntriesController < ApplicationController
 	end
 
 	def show
-		return head :forbidden unless params[:id].to_i > 0
-		@blog_entry = BlogEntry.find(params[:id])
+		
 	end
 
 	def create
@@ -31,6 +31,7 @@ class BlogEntriesController < ApplicationController
     end
 
     def set_blog_entry
+      return head :forbidden unless params[:id].to_i > 0
       @blog_entry = BlogEntry.find(params[:id])
     end
 end
