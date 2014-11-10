@@ -35,18 +35,19 @@ class BlogEntriesControllerTest < ActionController::TestCase
 	end
 
 	test "should not show the blog entry" do
-		get :show, :id => "asdf"
+		get :show, :id => "foo"
 		assert_response :forbidden
 	end
 
 	test "should render edit" do
-		get :edit, :id => BlogEntry.first
+		get :edit, :id => @blog_entry
 		assert_response :success
 	end
 
 	test "should update blog entry" do
-		@blog_entry.expects(:title).at_least(1).returns("New title (Updated)")
-		patch :update, :id => @blog_entry, blog_entry: {title: @blog_entry.title , body: @blog_entry.body + " " + "updated", tag_list: :tag_one} 
+		@blog_entry.expects(:title).at_least(1).returns("Title (Updated)")
+		@blog_entry.expects(:body).at_least(1).returns("Body (Updated)")
+		patch :update, :id => @blog_entry, blog_entry: {title: @blog_entry.title , body: @blog_entry.body, tag_list: :tag_one} 
 		assert_response :accepted
 	end
 
