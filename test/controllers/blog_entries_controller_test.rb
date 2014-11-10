@@ -54,4 +54,9 @@ class BlogEntriesControllerTest < ActionController::TestCase
 		assert_response :accepted
 	end
 
+	test "should destroy blog entry" do
+		@blog_entry = BlogEntry.first
+		delete :destroy, id: @blog_entry
+	end
+
 end
