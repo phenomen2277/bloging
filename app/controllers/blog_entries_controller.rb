@@ -15,7 +15,13 @@ class BlogEntriesController < ApplicationController
 	end
 
 	def update
-
+		respond_to do |format|
+			if @blog_entry.update(blog_entry_params)
+				format.html { redirect_to @blog_entry, :status => :accepted, notice: 'Blog entry is updated.' }
+			else
+				format.html { render :edit }
+			end
+		end
 	end
 
 	def create
