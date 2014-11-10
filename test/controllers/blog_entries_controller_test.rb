@@ -31,5 +31,9 @@ class BlogEntriesControllerTest < ActionController::TestCase
 	assert_response :forbidden
 	end
 
+	test "should show the blog entry" do
+		get :show
+		assert_response :success
+	end
 
 end
