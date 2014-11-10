@@ -7,6 +7,7 @@ class BlogEntriesControllerTest < ActionController::TestCase
 
 	test "should render new" do 
 		get :new
+		assert_response :success
 	end
 
 
