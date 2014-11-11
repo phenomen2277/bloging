@@ -31,7 +31,7 @@ class UserFlowTest < ActionDispatch::IntegrationTest
 		fill_in("Body", :with => "")
 		fill_in("Tags", :with => "Foo, bar")
 		click_on("Create Blog entry")
-		assert page.has_content?("Title can't be blank")
+		assert page.has_content?("Body can't be blank")
 	end
 
 end
