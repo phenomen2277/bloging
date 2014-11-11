@@ -24,4 +24,14 @@ class UserFlowTest < ActionDispatch::IntegrationTest
 		click_on("Create Blog entry")
 		assert page.has_content?("Title can't be blank")
 	end
+
+	test "should not submit a new blog entry when body is missing" do 
+		visit(new_blog_entry_path)
+		fill_in("Title", :with => "This is the title")
+		fill_in("Body", :with => "")
+		fill_in("Tags", :with => "Foo, bar")
+		click_on("Create Blog entry")
+		assert page.has_content?("Title can't be blank")
+	end
+
 end
