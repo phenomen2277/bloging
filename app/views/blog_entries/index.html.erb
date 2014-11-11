@@ -1,24 +1,12 @@
 <h1>My Bloging...</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @blog_entries.each do |blog_entry| %>
+<div>
+  <h2><%= blog_entry.title %></h2>
+  <p><%= truncate blog_entry.body, :length => 100, :omission => "..." %></p>
+  <div>Tags <%= blog_entry.tag_list %></div>
+  <div>Created at <%= blog_entry.created_at %> <%= link_to 'Show', blog_entry %> <%= link_to 'Edit', edit_blog_entry_path(blog_entry) %> <%= link_to 'Destroy', blog_entry, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+</div>
+<% end %>
 
-  <tbody>
-    <% @blog_entries.each do |blog_entry| %>
-      <div>
-      <h2><%= blog_entry.title %></h2>
-      <p><%= truncate blog_entry.body, :length => 100, :omission => "..." %></p>
-      <div>Tags <%= blog_entry.tag_list %></div>
-      <div>Created at <%= blog_entry.created_at %> <%= link_to 'Show', blog_entry %> <%= link_to 'Edit', edit_blog_entry_path(blog_entry) %> <%= link_to 'Destroy', blog_entry, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-      </div>
-    <% end %>
-  </tbody>
-</table>
 
-<br>

@@ -34,4 +34,13 @@ class UserFlowTest < ActionDispatch::IntegrationTest
 		assert page.has_content?("Body can't be blank")
 	end
 
+	test "should login create a new blog entry and logout" do 
+		visit(blog_entries_path)
+		click_on("New entry")
+		fill_in("Title", :with => "This is the title")
+		fill_in("Body", :with => "This is the body")
+		fill_in("Tags", :with => "Foo, bar")
+		click_on("Create Blog entry")
+		click_on("Logout")
+	end
 end
