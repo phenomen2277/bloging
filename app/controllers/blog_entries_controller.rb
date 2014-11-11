@@ -1,5 +1,5 @@
 class BlogEntriesController < ApplicationController
-	before_action :require_authentication, only: [:new, :edit, :destroy]
+	before_action :require_authentication, only: [:new, :edit, :update, :create, :destroy]
 	before_action :set_blog_entry, only: [:show, :edit, :update, :destroy]
 	def index
 		@blog_entries = BlogEntry.all.order("created_at DESC")
@@ -16,7 +16,6 @@ class BlogEntriesController < ApplicationController
 	end
 
 	def destroy
-
 		respond_to do |format|
 			if @blog_entry.destroy
 				format.html { redirect_to blog_entries_url, notice: 'Blog entry was destroyed.' }

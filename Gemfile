@@ -40,4 +40,6 @@ gem 'spring',        group: :development
 # 
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'simplecov', :require => false, :group => :test
-gem 'mocha', :require => false
+gem 'mocha', :require => false, :group => :test
+gem 'capybara', group: :test
+gem 'selenium-webdriver', :group => :test
