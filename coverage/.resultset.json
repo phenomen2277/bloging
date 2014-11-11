@@ -15,6 +15,63 @@
         null,
         null
       ],
+      "/Users/jone/Documents/rails/bloging/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/jone/Documents/rails/bloging/app/helpers/user_sessions_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/jone/Documents/rails/bloging/test/models/blog_entry_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
       "/Users/jone/Documents/rails/bloging/test/controllers/blog_entries_controller_test.rb": [
         1,
         null,
@@ -138,11 +195,13 @@
         0,
         0,
         0,
+        0,
+        0,
         null,
         null
       ]
     },
-    "timestamp": 1415705388
+    "timestamp": 1415706629
   },
   "Unit Tests": {
     "coverage": {

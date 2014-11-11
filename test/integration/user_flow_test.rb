@@ -3,7 +3,7 @@ require 'test_helper'
 class UserFlowTest < ActionDispatch::IntegrationTest
 	def setup 
 		Capybara.app_host = 'http://localhost:3000'
-		Capybara.default_wait_time = 15
+		Capybara.default_wait_time = 5
 		Capybara.current_driver = :selenium
 	end
 
@@ -42,5 +42,7 @@ class UserFlowTest < ActionDispatch::IntegrationTest
 		fill_in("Tags", :with => "Foo, bar")
 		click_on("Create Blog entry")
 		click_on("Logout")
+		visit(blog_entries_path)
+		assert_not page.has_content?("Logout")
 	end
 end

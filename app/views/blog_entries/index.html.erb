@@ -1,3 +1,7 @@
+  <div class="header">
+    <%= link_to "New entry", new_blog_entry_path %>
+    <%= link_to "Logout", user_sessions_logout_path  unless session[:logged_in] == nil %>
+  </div>
 <h1>My Bloging...</h1>
 
 <% @blog_entries.each do |blog_entry| %>
