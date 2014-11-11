@@ -42,7 +42,7 @@ class BlogEntriesController < ApplicationController
 			if @blog_entry.save
 				format.html { redirect_to :action => :index }
 			else
-				return head :forbidden
+				format.html { render :new, :status => :method_not_allowed }
 			end
 		end
 	end

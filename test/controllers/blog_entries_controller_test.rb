@@ -29,7 +29,7 @@ class BlogEntriesControllerTest < ActionController::TestCase
 		login!
 		@blog_entry.expects(:title).at_least(1).returns(nil)
 		post :create, blog_entry: { body: @blog_entry.body, title: @blog_entry.title, tag_list: :tag_one }
-		assert_response :forbidden
+		assert_response :method_not_allowed
 	end
 
 	test "should show the blog entry" do
